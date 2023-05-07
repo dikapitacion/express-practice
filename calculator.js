@@ -1,14 +1,17 @@
 const express = require("express")
-const bodyParser = require("body-parser")
+// const bodyParser = require("body-parser")
 
 const app = express()
-app.use(bodyParser.urlencoded({extended:true}))
+// app.use(bodyParser.urlencoded({extended:true}))
+//in modern express you don't need to use body parsers use the code given below instead
+app.use(express.urlencoded({extended: true}))
 
 app.get("/",function(req,res){
-    res.sendFile(__dirname+"/bmiCalculator.html")
+    res.sendFile(__dirname+"/index.html")
 })
 
 app.post("/",function(req,res){
+    console.log(req.body)
     var num1 = Number(req.body.num1)
     var num2 = Number(req.body.num2)
     var result = num1 + num2
