@@ -10,6 +10,10 @@ app.get("/",function(req,res){
     res.sendFile(__dirname+"/index.html")
 })
 
+app.get("/bmi",function(req,res){
+    res.sendFile(__dirname+"/bmiCalculator.html")
+})
+
 app.post("/",function(req,res){
     console.log(req.body)
     var num1 = Number(req.body.num1)
